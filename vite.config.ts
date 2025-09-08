@@ -15,6 +15,4 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // 👇 Important for GitHub Pages
-  base: "/portfolio-md-al-emran-15e1f3f8/",
 }));
