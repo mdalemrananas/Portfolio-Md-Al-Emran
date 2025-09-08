@@ -11,7 +11,6 @@ const EducationSection = () => {
       institution: 'United International University',
       location: 'Dhaka, Bangladesh',
       period: '2022 - 2026',
-      cgpa: '3.17',
       status: 'Final Year',
       description: 'Specializing in Data Science with focus on Machine Learning, AI, and Analytics. Active in research projects and academic excellence.',
       highlights: [
@@ -28,7 +27,6 @@ const EducationSection = () => {
       institution: 'Local College',
       location: 'Bangladesh',
       period: '2018 - 2019',
-      cgpa: '4.2',
       status: 'Completed',
       description: 'Completed higher secondary education with focus on Mathematics, Physics, and Chemistry.',
       highlights: [
@@ -45,7 +43,6 @@ const EducationSection = () => {
       institution: 'Local High School',
       location: 'Bangladesh',
       period: '2016 - 2017',
-      cgpa: '4.5',
       status: 'Completed',
       description: 'Foundational education with excellent performance in science and mathematics.',
       highlights: [
@@ -57,12 +54,6 @@ const EducationSection = () => {
     }
   ];
 
-  const gpaData = [
-    { year: '2022', gpa: 3.0 },
-    { year: '2023', gpa: 3.1 },
-    { year: '2024', gpa: 3.2 },
-    { year: '2025', gpa: 3.17 },
-  ];
 
   const certifications = [
     { name: 'Data Analyst & Power BI', issuer: 'Interactive Care', status: 'Completed' },
@@ -138,10 +129,6 @@ const EducationSection = () => {
                         <MapPin className="h-4 w-4" />
                         <span>{edu.institution}, {edu.location}</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Award className="h-4 w-4" />
-                        <span>CGPA: {edu.cgpa}</span>
-                      </div>
                     </div>
 
                     <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -170,8 +157,8 @@ const EducationSection = () => {
             <p className="text-sm text-muted-foreground">Years of Study</p>
           </Card>
           <Card className="p-6 bg-surface border-card-border text-center glow-effect">
-            <div className="text-3xl font-bold text-gradient-secondary mb-2">3.17</div>
-            <p className="text-sm text-muted-foreground">Current CGPA</p>
+            <div className="text-3xl font-bold text-gradient-secondary mb-2">Final Year</div>
+            <p className="text-sm text-muted-foreground">Academic Status</p>
           </Card>
           <Card className="p-6 bg-surface border-card-border text-center glow-effect">
             <div className="text-3xl font-bold text-gradient-primary mb-2">7+</div>
