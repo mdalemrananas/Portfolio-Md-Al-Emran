@@ -128,7 +128,7 @@ const ProjectsSection = () => {
                       View Details
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="max-w-4xl bg-surface border-card-border">
+                  <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto bg-surface border-card-border">
                     <DialogHeader>
                       <DialogTitle className="text-2xl text-gradient-primary">
                         {selectedProject?.title}
@@ -200,6 +200,14 @@ const ProjectsSection = () => {
                     )}
                   </DialogContent>
                 </Dialog>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="flex-1"
+                >
+                  <Eye className="mr-2 h-4 w-4" />
+                  Watch Video
+                </Button>
               </div>
             </Card>
           ))}

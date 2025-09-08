@@ -163,57 +163,20 @@ const EducationSection = () => {
           ))}
         </div>
 
-        {/* GPA Progression Chart */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
-          <Card className="p-6 bg-surface border-card-border glow-effect animate-fade-in-left">
-            <h3 className="text-xl font-semibold mb-6 text-center">Academic Performance</h3>
-            <ResponsiveContainer width="100%" height={250}>
-              <LineChart data={gpaData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                <XAxis 
-                  dataKey="year"
-                  stroke="hsl(var(--muted-foreground))"
-                  fontSize={12}
-                />
-                <YAxis 
-                  domain={[2.5, 4.0]}
-                  stroke="hsl(var(--muted-foreground))"
-                  fontSize={12}
-                />
-                <Tooltip 
-                  contentStyle={{
-                    backgroundColor: 'hsl(var(--surface))',
-                    border: '1px solid hsl(var(--border))',
-                    borderRadius: '8px',
-                    color: 'hsl(var(--foreground))'
-                  }}
-                />
-                <Line 
-                  type="monotone" 
-                  dataKey="gpa" 
-                  stroke="hsl(var(--primary))" 
-                  strokeWidth={3}
-                  dot={{ fill: 'hsl(var(--primary))', strokeWidth: 2, r: 6 }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
+        {/* Quick Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 animate-fade-in-up">
+          <Card className="p-6 bg-surface border-card-border text-center glow-effect">
+            <div className="text-3xl font-bold text-gradient-primary mb-2">4</div>
+            <p className="text-sm text-muted-foreground">Years of Study</p>
           </Card>
-
-          {/* Quick Stats */}
-          <div className="space-y-4 animate-fade-in-right">
-            <Card className="p-4 bg-surface border-card-border text-center glow-effect">
-              <div className="text-2xl font-bold text-gradient-primary mb-1">4</div>
-              <p className="text-sm text-muted-foreground">Years of Study</p>
-            </Card>
-            <Card className="p-4 bg-surface border-card-border text-center glow-effect">
-              <div className="text-2xl font-bold text-gradient-secondary mb-1">3.17</div>
-              <p className="text-sm text-muted-foreground">Current CGPA</p>
-            </Card>
-            <Card className="p-4 bg-surface border-card-border text-center glow-effect">
-              <div className="text-2xl font-bold text-gradient-primary mb-1">7+</div>
-              <p className="text-sm text-muted-foreground">Academic Projects</p>
-            </Card>
-          </div>
+          <Card className="p-6 bg-surface border-card-border text-center glow-effect">
+            <div className="text-3xl font-bold text-gradient-secondary mb-2">3.17</div>
+            <p className="text-sm text-muted-foreground">Current CGPA</p>
+          </Card>
+          <Card className="p-6 bg-surface border-card-border text-center glow-effect">
+            <div className="text-3xl font-bold text-gradient-primary mb-2">7+</div>
+            <p className="text-sm text-muted-foreground">Academic Projects</p>
+          </Card>
         </div>
 
         {/* Certifications */}
@@ -225,16 +188,24 @@ const EducationSection = () => {
             {certifications.map((cert, index) => (
               <Card 
                 key={index} 
-                className="p-4 bg-surface border-card-border hover:shadow-glow transition-smooth cursor-pointer hover:scale-105"
+                className="p-4 bg-surface border-card-border hover:shadow-glow transition-smooth"
               >
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center gap-2 mb-3">
                   <div className={`w-2 h-2 rounded-full ${
                     cert.status === 'Completed' ? 'bg-green-400' : 'bg-yellow-400'
                   }`}></div>
                   <span className="text-xs text-muted-foreground">{cert.status}</span>
                 </div>
-                <h4 className="font-semibold text-sm mb-1">{cert.name}</h4>
-                <p className="text-xs text-muted-foreground">{cert.issuer}</p>
+                <h4 className="font-semibold text-sm mb-2">{cert.name}</h4>
+                <p className="text-xs text-muted-foreground mb-3">{cert.issuer}</p>
+                <div className="flex gap-2">
+                  <button className="flex-1 text-xs px-3 py-1 bg-primary/20 text-primary rounded hover:bg-primary/30 transition-colors">
+                    View Details
+                  </button>
+                  <button className="flex-1 text-xs px-3 py-1 bg-secondary/20 text-secondary rounded hover:bg-secondary/30 transition-colors">
+                    View Certificate
+                  </button>
+                </div>
               </Card>
             ))}
           </div>

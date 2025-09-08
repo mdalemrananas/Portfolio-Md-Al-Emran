@@ -74,38 +74,35 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* Right Content - Chart */}
+          {/* Right Content - Soft Skills */}
           <div className="animate-fade-in-right">
             <Card className="p-6 bg-surface border-card-border glow-effect">
-              <h3 className="text-xl font-semibold mb-6 text-center">Academic Growth Timeline</h3>
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={statsData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                  <XAxis 
-                    dataKey="year" 
-                    stroke="hsl(var(--muted-foreground))"
-                    fontSize={12}
-                  />
-                  <YAxis 
-                    stroke="hsl(var(--muted-foreground))"
-                    fontSize={12}
-                  />
-                  <Tooltip 
-                    contentStyle={{
-                      backgroundColor: 'hsl(var(--surface))',
-                      border: '1px solid hsl(var(--border))',
-                      borderRadius: '8px',
-                      color: 'hsl(var(--foreground))'
-                    }}
-                    labelStyle={{ color: 'hsl(var(--foreground))' }}
-                  />
-                  <Bar 
-                    dataKey="projects" 
-                    fill="hsl(var(--primary))"
-                    radius={[4, 4, 0, 0]}
-                  />
-                </BarChart>
-              </ResponsiveContainer>
+              <h3 className="text-xl font-semibold mb-6 text-center text-gradient-primary">Soft Skills</h3>
+              <div className="space-y-4">
+                {[
+                  { skill: 'Problem-solving', level: 95, icon: '🧩' },
+                  { skill: 'Analytical Thinking', level: 90, icon: '🔍' },
+                  { skill: 'Team Collaboration', level: 85, icon: '🤝' },
+                  { skill: 'Communication', level: 80, icon: '💬' },
+                  { skill: 'Adaptability', level: 88, icon: '🔄' },
+                ].map((item, index) => (
+                  <div key={index} className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <span className="text-xl">{item.icon}</span>
+                        <span className="font-medium text-foreground">{item.skill}</span>
+                      </div>
+                      <span className="text-sm text-primary font-semibold">{item.level}%</span>
+                    </div>
+                    <div className="w-full bg-muted rounded-full h-2">
+                      <div 
+                        className="bg-gradient-to-r from-primary to-secondary h-2 rounded-full transition-all duration-1000 ease-out"
+                        style={{ width: `${item.level}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </Card>
           </div>
         </div>
