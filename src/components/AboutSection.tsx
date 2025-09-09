@@ -76,34 +76,30 @@ const AboutSection = () => {
 
           {/* Right Content - Soft Skills */}
           <div className="animate-fade-in-right">
-            <Card className="p-6 bg-surface border-card-border glow-effect">
-              <h3 className="text-xl font-semibold mb-6 text-center text-gradient-primary">Soft Skills</h3>
-              <div className="space-y-4">
-                {[
-                  { skill: 'Problem-solving', level: 95, icon: '🧩' },
-                  { skill: 'Analytical Thinking', level: 90, icon: '🔍' },
-                  { skill: 'Team Collaboration', level: 85, icon: '🤝' },
-                  { skill: 'Communication', level: 80, icon: '💬' },
-                  { skill: 'Adaptability', level: 88, icon: '🔄' },
-                ].map((item, index) => (
-                  <div key={index} className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <span className="text-xl">{item.icon}</span>
-                        <span className="font-medium text-foreground">{item.skill}</span>
-                      </div>
-                      <span className="text-sm text-primary font-semibold">{item.level}%</span>
-                    </div>
-                    <div className="w-full bg-muted rounded-full h-2">
+            <h3 className="text-xl font-semibold mb-6 text-gradient-primary text-center">Soft Skills</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { skill: 'Problem-solving', level: 95, icon: '🧩' },
+                { skill: 'Analytical Thinking', level: 90, icon: '🧠' },
+                { skill: 'Team Collaboration', level: 85, icon: '🤝' },
+                { skill: 'Communication', level: 80, icon: '💬' },
+                { skill: 'Adaptability', level: 88, icon: '🔄' },
+              ].map((item, index) => (
+                <Card key={index} className="p-4 hover:shadow-glow transition-all duration-300 hover:scale-105 bg-gradient-surface border-primary/20">
+                  <div className="text-center">
+                    <div className="text-2xl mb-2">{item.icon}</div>
+                    <h4 className="font-semibold text-foreground mb-1">{item.skill}</h4>
+                    <div className="w-full bg-muted rounded-full h-2 mb-2">
                       <div 
-                        className="bg-gradient-to-r from-primary to-secondary h-2 rounded-full transition-all duration-1000 ease-out"
+                        className="bg-gradient-primary h-2 rounded-full transition-all duration-1000"
                         style={{ width: `${item.level}%` }}
                       ></div>
                     </div>
+                    <span className="text-sm text-primary font-medium">{item.level}%</span>
                   </div>
-                ))}
-              </div>
-            </Card>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </div>

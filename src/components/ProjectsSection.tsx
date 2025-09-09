@@ -115,20 +115,20 @@ const ProjectsSection = () => {
                 ))}
               </div>
 
-              <div className="flex gap-2">
+              <div className="flex flex-col gap-2">
                 <Dialog>
                   <DialogTrigger asChild>
                     <Button 
                       variant="glow" 
                       size="sm" 
-                      className="flex-1"
+                      className="w-full"
                       onClick={() => setSelectedProject(project)}
                     >
                       <Eye className="mr-2 h-4 w-4" />
                       View Details
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto bg-surface border-card-border">
+                  <DialogContent className="max-w-4xl max-h-[85vh] overflow-y-auto bg-surface border-card-border">
                     <DialogHeader>
                       <DialogTitle className="text-2xl text-gradient-primary">
                         {selectedProject?.title}
@@ -203,7 +203,7 @@ const ProjectsSection = () => {
                 <Button 
                   variant="outline" 
                   size="sm" 
-                  className="flex-1"
+                  className="w-full"
                 >
                   <Eye className="mr-2 h-4 w-4" />
                   Watch Video
