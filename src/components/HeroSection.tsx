@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Download, ChevronDown } from 'lucide-react';
-import profileImage from '@/assets/profile-image.jpg';
+import profileImage from '@/assets/profile-image-new.jpg';
 
 interface HeroSectionProps {
   onNavigate: (section: string) => void;
