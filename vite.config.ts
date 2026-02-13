@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: process.env.VITE_BASE || (mode === "production" ? "/Portfolio-Md-Al-Emran/" : "/"),
+  base: mode === "production" ? "/Portfolio-Md-Al-Emran/" : "/",
   server: {
     host: "::",
     port: 8080,
