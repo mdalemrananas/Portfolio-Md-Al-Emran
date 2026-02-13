@@ -14,7 +14,8 @@ const ResearchSection = () => {
       abstract: 'Depression among students is a growing concern, significantly impacting academic performance. This study develops machine learning models to predict academic resilience in students with depression using comprehensive datasets encompassing demographic, academic, and lifestyle factors.',
       keywords: ['Machine Learning', 'Academic Resilience', 'Mental Health', 'Data Science'],
       status: 'Published',
-      link: '#'
+      link: '#',
+      github: 'https://github.com/mdalemrananas/Machine-Learning-Paper'
     },
     {
       id: 2,
@@ -25,18 +26,8 @@ const ResearchSection = () => {
       abstract: 'This project develops an intelligent system for automatic information extraction from Bangladeshi land-related documents using advanced OCR and NLP techniques tailored for Bangla language processing.',
       keywords: ['Deep Learning', 'OCR', 'NLP', 'Document Processing', 'Bangla'],
       status: 'In Progress',
-      link: '#'
-    },
-    {
-      id: 3,
-      title: 'AI-Driven Solutions for Educational Data Analytics',
-      authors: 'MD AL EMRAN, et al.',
-      venue: 'Education Technology Conference',
-      year: '2025',
-      abstract: 'Exploring the application of artificial intelligence in educational data analytics to improve learning outcomes and institutional decision-making processes.',
-      keywords: ['AI', 'Educational Analytics', 'Data Mining', 'Learning Outcomes'],
-      status: 'Upcoming',
-      link: '#'
+      link: '#',
+      github: 'https://github.com/mdalemrananas/FYDP-Thesis'
     }
   ];
 
@@ -128,17 +119,16 @@ const ResearchSection = () => {
                     Read Paper
                   </Button>
                   
-                  <Button variant="outline_glow" className="w-full">
-                    <FaGithub className="mr-2 h-4 w-4" />
-                    GitHub
-                  </Button>
-                  
-                  {paper.status === 'Published' && (
+                  <a 
+                    href={paper.github} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
                     <Button variant="outline_glow" className="w-full">
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Citation
+                      <FaGithub className="mr-2 h-4 w-4" />
+                      GitHub
                     </Button>
-                  )}
+                  </a>
                 </div>
               </div>
             </Card>
