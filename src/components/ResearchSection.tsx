@@ -1,6 +1,7 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { FileText, ExternalLink, Award } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
 
 const ResearchSection = () => {
   const papers = [
@@ -58,10 +59,10 @@ const ResearchSection = () => {
   };
 
   return (
-    <section id="research" className="py-20 lg:py-32 bg-surface">
+    <section id="research" className="py-16 lg:py-24 bg-surface">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="mb-16 text-center animate-fade-in-up">
-          <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl lg:text-4xl font-bold mb-6">
             <span className="text-gradient-primary">Research & Publications</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -127,17 +128,17 @@ const ResearchSection = () => {
                     Read Paper
                   </Button>
                   
+                  <Button variant="outline_glow" className="w-full">
+                    <FaGithub className="mr-2 h-4 w-4" />
+                    GitHub
+                  </Button>
+                  
                   {paper.status === 'Published' && (
                     <Button variant="outline_glow" className="w-full">
                       <ExternalLink className="mr-2 h-4 w-4" />
                       Citation
                     </Button>
                   )}
-
-                  <div className="flex items-center justify-center gap-2 mt-2">
-                    <Award className="h-4 w-4 text-primary" />
-                    <span className="text-xs text-muted-foreground">Peer Reviewed</span>
-                  </div>
                 </div>
               </div>
             </Card>

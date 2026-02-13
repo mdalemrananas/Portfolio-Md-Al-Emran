@@ -70,7 +70,7 @@ const EducationSection = () => {
     <section id="education" className="py-20 lg:py-32">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="mb-16 text-center animate-fade-in-up">
-          <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl lg:text-4xl font-bold mb-6">
             <span className="text-gradient-primary">Education Timeline</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

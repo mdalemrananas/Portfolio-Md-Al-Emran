@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Home, User, Briefcase, FileText, Award, GraduationCap, Mail } from 'lucide-react';
 
@@ -9,6 +9,7 @@ interface NavigationProps {
 
 const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navItems = [
     { id: 'hero', label: 'Home', icon: Home },
@@ -20,6 +21,15 @@ const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
     { id: 'contact', label: 'Contact', icon: Mail },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleNavClick = (sectionId: string) => {
     onNavigate(sectionId);
     setIsMobileMenuOpen(false);
@@ -27,87 +37,83 @@ const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
 
   return (
     <>
-      {/* Desktop Navigation */}
-      <nav className="hidden lg:flex fixed left-0 top-0 h-full w-64 bg-surface border-r border-card-border z-50">
-        <div className="flex flex-col w-full p-6">
-          <div className="mb-8">
-            <h2 className="text-xl font-bold text-gradient-primary">MD AL EMRAN</h2>
-            <p className="text-sm text-muted-foreground mt-1">Portfolio</p>
+      {/* Header Navigation */}
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-surface/95 backdrop-blur-md border-b border-card-border shadow-lg' 
+          : 'bg-background/80 backdrop-blur-sm'
+      }`}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <h1 className="text-xl font-bold text-gradient-primary">AL EMRAN</h1>
+            </div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => handleNavClick(item.id)}
+                    className={`relative group flex items-center gap-2 px-3 py-2 text-sm font-medium transition-all duration-300 ${
+                      activeSection === item.id
+                        ? 'text-primary'
+                        : 'text-foreground hover:text-primary'
+                    }`}
+                  >
+                    <Icon size={16} />
+                    <span>{item.label}</span>
+                    {/* Animated underline */}
+                    <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 ${
+                      activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`} />
+                  </button>
+                );
+              })}
+            </nav>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-foreground hover:text-primary"
+              >
+                {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              </Button>
+            </div>
           </div>
-          
-          <ul className="space-y-2 flex-1">
+        </div>
+
+        {/* Mobile Navigation Menu */}
+        <div className={`md:hidden transition-all duration-300 ease-in-out ${
+          isMobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+        }`}>
+          <div className="px-4 py-2 space-y-1 bg-surface/95 backdrop-blur-md border-t border-card-border">
             {navItems.map((item) => {
               const Icon = item.icon;
               return (
-                <li key={item.id}>
-                  <button
-                    onClick={() => handleNavClick(item.id)}
-                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-smooth text-left ${
-                      activeSection === item.id
-                        ? 'bg-primary text-primary-foreground shadow-glow'
-                        : 'text-foreground hover:bg-surface-hover hover:text-primary'
-                    }`}
-                  >
-                    <Icon size={18} />
-                    <span className="font-medium">{item.label}</span>
-                  </button>
-                </li>
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item.id)}
+                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-all duration-300 ${
+                    activeSection === item.id
+                      ? 'bg-primary/10 text-primary border-l-2 border-primary'
+                      : 'text-foreground hover:bg-primary/5 hover:text-primary'
+                  }`}
+                >
+                  <Icon size={18} />
+                  <span className="font-medium">{item.label}</span>
+                </button>
               );
             })}
-          </ul>
+          </div>
         </div>
-      </nav>
-
-      {/* Mobile Navigation Toggle */}
-      <div className="lg:hidden fixed top-4 left-4 z-50">
-        <Button
-          variant="glow"
-          size="icon"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="shadow-lg"
-        >
-          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-        </Button>
-      </div>
-
-      {/* Mobile Navigation Overlay */}
-      {isMobileMenuOpen && (
-        <>
-          <div 
-            className="lg:hidden fixed inset-0 bg-background/80 backdrop-blur-sm z-40"
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
-          <nav className="lg:hidden fixed left-0 top-0 h-full w-64 bg-surface border-r border-card-border z-50 animate-slide-in-top">
-            <div className="flex flex-col w-full p-6">
-              <div className="mb-8">
-                <h2 className="text-xl font-bold text-gradient-primary">MD AL EMRAN</h2>
-                <p className="text-sm text-muted-foreground mt-1">Portfolio</p>
-              </div>
-              
-              <ul className="space-y-2 flex-1">
-                {navItems.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <li key={item.id}>
-                      <button
-                        onClick={() => handleNavClick(item.id)}
-                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-smooth text-left ${
-                          activeSection === item.id
-                            ? 'bg-primary text-primary-foreground shadow-glow'
-                            : 'text-foreground hover:bg-surface-hover hover:text-primary'
-                        }`}
-                      >
-                        <Icon size={18} />
-                        <span className="font-medium">{item.label}</span>
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </nav>
-        </>
-      )}
+      </header>
     </>
   );
 };

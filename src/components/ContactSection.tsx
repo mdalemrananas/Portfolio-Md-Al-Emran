@@ -73,32 +73,32 @@ const ContactSection = () => {
   const contactLinks = [
     {
       name: 'Email',
-      value: 'alamemran.cse@gmail.com',
+      value: 'mdalemrananas@gmail.com',
       icon: Mail,
-      href: 'mailto:alamemran.cse@gmail.com',
+      href: 'mailto:mdalemrananas@gmail.com',
       color: 'text-primary'
     },
     {
       name: 'LinkedIn',
-      value: 'linkedin.com/in/md-al-emran',
+      value: 'linkedin.com/in/emran7164/',
       icon: Linkedin,
-      href: 'https://linkedin.com/in/md-al-emran',
+      href: 'https://www.linkedin.com/in/emran7164/',
       color: 'text-blue-400'
     },
     {
       name: 'GitHub',
-      value: 'github.com/md-al-emran',
+      value: 'github.com/mdalemrananas',
       icon: Github,
-      href: 'https://github.com/md-al-emran',
+      href: 'https://github.com/mdalemrananas',
       color: 'text-purple-400'
     }
   ];
 
   return (
-    <section id="contact" className="py-20 lg:py-32 bg-surface">
+    <section id="contact" className="py-16 lg:py-24 bg-surface">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="mb-16 text-center animate-fade-in-up">
-          <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl lg:text-4xl font-bold mb-6">
             <span className="text-gradient-primary">Contact</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -106,7 +106,7 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Contact Form */}
           <Card className="p-8 bg-card border-card-border glow-effect animate-fade-in-left">
             <h3 className="text-2xl font-bold mb-6 text-gradient-primary">Send me a message</h3>

@@ -1,17 +1,20 @@
 import { Button } from '@/components/ui/button';
 import { Download, ChevronDown } from 'lucide-react';
+import { FaFacebook, FaInstagram, FaGithub, FaLinkedin, FaHackerrank } from 'react-icons/fa';
+import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 import profileImage from '@/assets/profile-image-new.jpg';
 
 interface HeroSectionProps {
   onNavigate: (section: string) => void;
+  onDownloadResume: () => void;
 }
 
-const HeroSection = ({ onNavigate }: HeroSectionProps) => {
+const HeroSection = ({ onNavigate, onDownloadResume }: HeroSectionProps) => {
   const handleDownloadResume = () => {
     // Create a temporary link for the resume download
     const link = document.createElement('a');
-    link.href = '/resume-md-al-emran.pdf'; // This would need to be added to public folder
-    link.download = 'MD_AL_EMRAN_Resume.pdf';
+    link.href = '/MD_AL_EMRAN_CV.pdf';
+    link.download = 'MD_AL_EMRAN_CV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -31,20 +34,19 @@ const HeroSection = ({ onNavigate }: HeroSectionProps) => {
           {/* Left Content */}
           <div className="flex-1 text-center lg:text-left animate-fade-in-left">
             <div className="mb-6">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-4">
-                <span className="block text-foreground">Hello.</span>
-                <span className="block text-foreground">I'm AL EMRAN</span>
-                <span className="block text-gradient-primary">Data Analyst</span>
+              <h1 className="text-3xl lg:text-5xl font-bold mb-4">
+                <span className="block text-foreground">Hello, I'm</span>
+                <span className="block text-gradient-primary">AL EMRAN</span>
               </h1>
-              <p className="text-xl lg:text-2xl text-muted-foreground mb-2">
-                Junior Data Scientist | ML Enthusiast
+              <p className="text-lg lg:text-xl text-muted-foreground mb-2">
+                Data Scientist & Machine Learning Engineer
               </p>
-              <p className="text-lg text-muted-foreground max-w-2xl">
-                Data Visualization • Machine Learning • Dashboard Development • Research & AI Solutions
+              <p className="text-base text-muted-foreground max-w-2xl">
+                Specializing in data visualization, ML solutions, and intelligent systems development
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
               <Button 
                 variant="hero" 
                 size="lg"
@@ -55,14 +57,59 @@ const HeroSection = ({ onNavigate }: HeroSectionProps) => {
                 <ChevronDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
               </Button>
               <Button 
-                variant="outline_glow" 
+                variant="glow" 
                 size="lg"
                 onClick={handleDownloadResume}
-                className="group"
+                className="relative group overflow-hidden bg-gradient-to-r from-primary to-accent text-primary-foreground hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl animate-pulse-glow"
               >
-                <Download className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
-                My Resume
+                <span className="absolute inset-0 bg-gradient-to-r from-primary/50 to-accent/50 animate-shimmer"></span>
+                <Download className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform relative z-10" />
+                <span className="relative z-10 font-semibold">Download Resume</span>
               </Button>
+            </div>
+
+            {/* Social Media Icons */}
+            <div className="flex justify-center lg:justify-start gap-4">
+              <a 
+                href="https://www.facebook.com/imran.khan.511532" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group relative p-3 rounded-full bg-surface border border-card-border hover:border-primary/50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20"
+              >
+                <FaFacebook className="w-5 h-5 text-foreground group-hover:text-primary transition-colors" />
+              </a>
+              <a 
+                href="https://www.instagram.com/_imrannkhan?utm_source=qr&igsh=MW50a3g5NGRueWs4eA==" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group relative p-3 rounded-full bg-surface border border-card-border hover:border-primary/50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20"
+              >
+                <FaInstagram className="w-5 h-5 text-foreground group-hover:text-primary transition-colors" />
+              </a>
+              <a 
+                href="https://github.com/mdalemrananas" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group relative p-3 rounded-full bg-surface border border-card-border hover:border-primary/50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20"
+              >
+                <FaGithub className="w-5 h-5 text-foreground group-hover:text-primary transition-colors" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/emran7164/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group relative p-3 rounded-full bg-surface border border-card-border hover:border-primary/50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20"
+              >
+                <FaLinkedin className="w-5 h-5 text-foreground group-hover:text-primary transition-colors" />
+              </a>
+              <a 
+                href="https://www.hackerrank.com/profile/mdalemrananas" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group relative p-3 rounded-full bg-surface border border-card-border hover:border-primary/50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20"
+              >
+                <FaHackerrank className="w-5 h-5 text-foreground group-hover:text-primary transition-colors" />
+              </a>
             </div>
           </div>
 

@@ -10,24 +10,21 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-20 lg:py-32">
+    <section id="about" className="py-16 lg:py-24">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="mb-16 text-center animate-fade-in-up">
-          <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl lg:text-4xl font-bold mb-6">
             <span className="text-gradient-primary">About me</span>
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Content */}
-          <div className="animate-fade-in-left">
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              I'm a final-year Computer Science student at United International University, Bangladesh, 
-              specializing in Data Science. Through data, I aim to solve real-world problems and create 
-              meaningful insights that drive decision-making in business and research.
+        <div className="max-w-4xl mx-auto">
+          <div className="animate-fade-in-up">
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed text-center">
+              I am a final-year Computer Science student at United International University, specializing in Data Science. I build end-to-end intelligent systems that transform messy, raw data into scalable, production-ready solutions. From architecting NLP pipelines to developing predictive analytics models, I focus on delivering technical excellence with human-centered explainability.
             </p>
 
-            <div className="grid grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-3 gap-6 mb-12">
               <div className="text-center">
                 <div className="text-3xl lg:text-4xl font-bold text-gradient-primary mb-2">
                   07<span className="text-secondary">+</span>
@@ -55,50 +52,22 @@ const AboutSection = () => {
             </div>
 
             <div className="space-y-4">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 justify-center">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
                 <span className="text-foreground">Data Visualization & Analytics</span>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 justify-center">
                 <div className="w-2 h-2 bg-secondary rounded-full"></div>
                 <span className="text-foreground">Machine Learning & AI Solutions</span>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 justify-center">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
                 <span className="text-foreground">Dashboard Development</span>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 justify-center">
                 <div className="w-2 h-2 bg-secondary rounded-full"></div>
                 <span className="text-foreground">Research & Academic Excellence</span>
               </div>
-            </div>
-          </div>
-
-          {/* Right Content - Soft Skills */}
-          <div className="animate-fade-in-right">
-            <h3 className="text-xl font-semibold mb-6 text-gradient-primary text-center">Soft Skills</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                { skill: 'Problem-solving', level: 95, icon: '🧩' },
-                { skill: 'Analytical Thinking', level: 90, icon: '🧠' },
-                { skill: 'Team Collaboration', level: 85, icon: '🤝' },
-                { skill: 'Communication', level: 80, icon: '💬' },
-                { skill: 'Adaptability', level: 88, icon: '🔄' },
-              ].map((item, index) => (
-                <Card key={index} className="p-4 hover:shadow-glow transition-all duration-300 hover:scale-105 bg-gradient-surface border-primary/20">
-                  <div className="text-center">
-                    <div className="text-2xl mb-2">{item.icon}</div>
-                    <h4 className="font-semibold text-foreground mb-1">{item.skill}</h4>
-                    <div className="w-full bg-muted rounded-full h-2 mb-2">
-                      <div 
-                        className="bg-gradient-primary h-2 rounded-full transition-all duration-1000"
-                        style={{ width: `${item.level}%` }}
-                      ></div>
-                    </div>
-                    <span className="text-sm text-primary font-medium">{item.level}%</span>
-                  </div>
-                </Card>
-              ))}
             </div>
           </div>
         </div>

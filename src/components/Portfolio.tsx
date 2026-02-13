@@ -58,7 +58,7 @@ const Portfolio = () => {
       <Navigation activeSection={activeSection} onNavigate={handleNavigate} />
 
       {/* Main Content */}
-      <main className="lg:ml-64">
+      <main className="pt-16">
         <HeroSection onNavigate={handleNavigate} />
         <AboutSection />
         <SkillsSection />
