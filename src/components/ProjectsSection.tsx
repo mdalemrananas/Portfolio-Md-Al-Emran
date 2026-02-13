@@ -11,10 +11,10 @@ import {
 import { ExternalLink, Github, Eye } from 'lucide-react';
 import { FaYoutube } from 'react-icons/fa';
 
-// ✅ Correct relative imports (CASE-SENSITIVE)
-import innovestImg from '../assets/innovest_homepage.jpeg';
-import byteArenaImg from '../assets/ByteArena_Homepage.jpeg';
-import uniEatsImg from '../assets/uniEat.jpg';
+// ✅ Correct absolute imports (CASE-SENSITIVE)
+import innovestImg from '@/assets/innovest_homepage.jpeg';
+import byteArenaImg from '@/assets/ByteArena_Homepage.jpeg';
+import uniEatsImg from '@/assets/uniEat.jpeg';
 
 const ProjectsSection = () => {
   const [selectedProject, setSelectedProject] = useState<any>(null);
@@ -86,8 +86,8 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="py-16 lg:py-24">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section id="projects" className="py-16 lg:py-24 overflow-x-hidden">
+      <div className="container mx-auto px-6 lg:px-8 max-w-full">
         <div className="mb-16 text-center">
           <h2 className="text-2xl lg:text-4xl font-bold mb-6">
             <span className="text-gradient-primary">Projects</span>
