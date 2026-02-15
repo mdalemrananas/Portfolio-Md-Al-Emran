@@ -11,9 +11,12 @@ interface HeroSectionProps {
 
 const HeroSection = ({ onNavigate, onDownloadResume }: HeroSectionProps) => {
   const handleDownloadResume = () => {
-    // Create a temporary link for the resume download
+    // Create a temporary link for resume download
     const link = document.createElement('a');
-    link.href = '/MD_AL_EMRAN_CV.pdf';
+    const isProduction = import.meta.env.PROD;
+    const basePath = isProduction ? '/Portfolio-Md-Al-Emran/' : '/';
+    
+    link.href = basePath + 'MD_AL_EMRAN_CV.pdf';
     link.download = 'MD_AL_EMRAN_CV.pdf';
     link.target = '_blank';
     document.body.appendChild(link);
@@ -22,7 +25,7 @@ const HeroSection = ({ onNavigate, onDownloadResume }: HeroSectionProps) => {
     
     // Fallback: open in new tab if download fails
     setTimeout(() => {
-      window.open('/MD_AL_EMRAN_CV.pdf', '_blank');
+      window.open(basePath + 'MD_AL_EMRAN_CV.pdf', '_blank');
     }, 1000);
   };
 
