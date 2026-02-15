@@ -15,9 +15,15 @@ const HeroSection = ({ onNavigate, onDownloadResume }: HeroSectionProps) => {
     const link = document.createElement('a');
     link.href = '/MD_AL_EMRAN_CV.pdf';
     link.download = 'MD_AL_EMRAN_CV.pdf';
+    link.target = '_blank';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    
+    // Fallback: open in new tab if download fails
+    setTimeout(() => {
+      window.open('/MD_AL_EMRAN_CV.pdf', '_blank');
+    }, 1000);
   };
 
   return (
