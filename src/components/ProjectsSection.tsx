@@ -39,7 +39,7 @@ const ProjectsSection = () => {
       image: innovestImg,
       github: 'https://github.com/mdalemrananas/InnoVest-StartUp-Investment-Platform',
       live: 'https://innovest-demo.vercel.app',
-      youtube: 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID'
+      youtube: 'https://youtu.be/78ohsRon_a0'
     },
     {
       id: 2,
@@ -60,7 +60,7 @@ const ProjectsSection = () => {
       image: byteArenaImg,
       github: 'https://github.com/mdalemrananas/ByteArena',
       live: 'https://innovest-demo.vercel.app',
-      youtube: 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID'
+      youtube: 'https://youtu.be/l-Rd3BHpD8s'
     },
     {
       id: 3,
@@ -81,7 +81,7 @@ const ProjectsSection = () => {
       image: uniEatsImg,
       github: 'https://github.com/mdalemrananas/UniEats--Campus-Food-Connect',
       live: 'https://innovest-demo.vercel.app',
-      youtube: 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID'
+      youtube: 'https://youtu.be/U79dlAFGaCU'
     }
   ];
 

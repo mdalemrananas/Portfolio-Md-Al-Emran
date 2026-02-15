@@ -51,24 +51,7 @@ const AboutSection = () => {
               </div>
             </div>
 
-            <div className="space-y-4">
-              <div className="flex items-center gap-3 justify-center">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span className="text-foreground">Data Visualization & Analytics</span>
-              </div>
-              <div className="flex items-center gap-3 justify-center">
-                <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                <span className="text-foreground">Machine Learning & AI Solutions</span>
-              </div>
-              <div className="flex items-center gap-3 justify-center">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span className="text-foreground">Dashboard Development</span>
-              </div>
-              <div className="flex items-center gap-3 justify-center">
-                <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                <span className="text-foreground">Research & Academic Excellence</span>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>

@@ -59,11 +59,9 @@ const EducationSection = () => {
     { name: 'Data Analyst & Power BI', issuer: 'Interactive Care', status: 'Completed' },
     { name: 'Basic Python', issuer: 'Udemy', status: 'Completed' },
     { name: 'Advanced SQL', issuer: 'Udemy', status: 'Completed' },
-    { name: 'Microsoft Office Suite', issuer: 'Udemy', status: 'Completed' },
     { name: 'Git & GitHub', issuer: 'Udemy', status: 'Completed' },
     { name: 'Advanced Excel', issuer: 'Udemy', status: 'Completed' },
     { name: 'Machine Learning', issuer: 'Coursera', status: 'In Progress' },
-    { name: 'Cloud Computing', issuer: 'AWS', status: 'In Progress' },
   ];
 
   return (
